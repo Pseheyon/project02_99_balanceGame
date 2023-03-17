@@ -1,0 +1,39 @@
+{
+  "games": [
+    {
+      "userid": 1,
+      "title": "깻잎논쟁",
+      "optionA": "깻잎 떼준다",
+      "optionB": "절대 안 떼준다"
+    },
+    {
+      "userid": 2,
+      "title": "깻잎논쟁2",
+      "optionA": "깻잎 떼준다2",
+      "optionB": "절대 안 떼준다2"
+    },
+    {
+      "userid": 3,
+      "title": "깻잎논쟁3",
+      "optionA": "깻잎 떼준다3",
+      "optionB": "절대 안 떼준다3"
+    }
+  ],
+  "comments": [
+    {
+      "userId": 1,
+      "content": "깻잎 혼자 먹자",
+      "part": "optionA"
+    },
+    {
+      "userId": 2,
+      "content": "help please",
+      "part": "optionB"
+    },
+    {
+      "userId": 3,
+      "content": "깻잎 혼자 먹자22222",
+      "part": "optionA"
+    }
+  ]
+}
