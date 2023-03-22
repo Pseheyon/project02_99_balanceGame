@@ -1,19 +1,18 @@
 import React from 'react'
 import AddCommentForm from '../comments/AddCommentForm'
 import CommentsAList from '../comments/CommentsAList'
+import styled from 'styled-components'
 
 function Comments() {
   return (
     <div>
-      <AddCommentForm />
-      <div
-        style={{
-          display: 'flex',
-          gap: '200px',
-        }}
-      >
+      <BackStyle>
+        <AddCommentForm />
+      </BackStyle>
+
+      <CommentBox>
         <CommentsAList />
-      </div>
+      </CommentBox>
     </div>
   )
 }
@@ -22,3 +21,15 @@ export default Comments
 
 // Form Data
 // json형식으로 리퀘스트 보냄
+
+const BackStyle = styled.div`
+  background-color: #ffafd6;
+  height: 200px;
+`
+const CommentBox = styled.div`
+  background-color: #ffc3e0;
+  display: flex;
+  gap: 200px;
+  height: 270px;
+  width: 100%;
+`

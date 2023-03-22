@@ -19,7 +19,7 @@ const EditComment = ({ comment }) => {
   const onDeleteButtonHandler = () => {
     const result = window.confirm('삭제하시겠습니까?')
     if (result) {
-      console.log('Deleting comment with commentId gameId', comment.commentId, comment.GameId)
+      // console.log('Deleting comment with commentId gameId', comment.commentId, comment.GameId)
       dispatch(__deleteComment({ commentId: comment.commentId, gameId: comment.GameId }))
     } else {
       return

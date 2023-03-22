@@ -39,73 +39,38 @@ const CommentsAList = () => {
     <div
       style={{
         display: 'flex',
-        gap: '30px',
       }}
     >
-      {/* <div>
-        <strong>option A</strong>
-        {comments &&
-          comments
-            .filter((comment) => comment.option == 'A')
-            .map((comment) => (
-              <div
-                style={{
-                  display: 'flex',
-                  gap: '7px',
-                }}
-                key={comment.commentId}
-              >
-                <div>{comment.content}</div>
-                <div>{comment.updatedAt.substr(0, 10)}</div>
-                <button>수정</button>
-                <button>삭제</button>
-              </div>
-            ))}
-      </div>
-      <div>
-        <strong>option B</strong>
-        {comments &&
-          comments
-            .filter((comment) => comment.option == 'B')
-            .map((comment) => (
-              <div
-                style={{
-                  display: 'flex',
-                  gap: '7px',
-                }}
-                key={comment.commentId}
-              >
-                <div>{comment.content}</div>
-                <div>{comment.updatedAt.substr(0, 10)}</div>
-                <button>수정</button>
-                <button>삭제</button>
-              </div>
-            ))}
-      </div> */}
-      <div>
-        {comments &&
-          comments
-            .filter((comment) => comment.option == 'A')
-            .map((comment) => (
-              <EditComment
-                key={comment.commentId}
-                comment={comment}
-                // onClick={() => clickisEdit(comment.commentId, __updatedComment)}
-              />
-            ))}
-      </div>
-      <div>
-        {comments &&
-          comments
-            .filter((comment) => comment.option == 'B')
-            .map((comment) => (
-              <EditComment
-                key={comment.commentId}
-                comment={comment}
-                onClick={() => clickisEdit(comment.commentId, __updatedComment)}
-              />
-            ))}
-      </div>
+      <BoxDiv backgroundColor="green">
+        <div>Option A</div>
+        <div>
+          {comments &&
+            comments
+              .filter((comment) => comment.option == 'A')
+              .map((comment) => (
+                <EditComment
+                  key={comment.commentId}
+                  comment={comment}
+                  // onClick={() => clickisEdit(comment.commentId, __updatedComment)}
+                />
+              ))}
+        </div>
+      </BoxDiv>
+      <BoxDiv backgroundColor="blue">
+        <div>Option B</div>
+        <div>
+          {comments &&
+            comments
+              .filter((comment) => comment.option == 'B')
+              .map((comment) => (
+                <EditComment
+                  key={comment.commentId}
+                  comment={comment}
+                  onClick={() => clickisEdit(comment.commentId, __updatedComment)}
+                />
+              ))}
+        </div>
+      </BoxDiv>
     </div>
   )
 }
@@ -119,65 +84,14 @@ const Textarea = styled.textarea`
   font-size: 14px;
 `
 
-//222222222
-// import React, { useState, useEffect } from 'react'
-// import styled from 'styled-components'
-// import { useParams } from 'react-router-dom'
-// import { useDispatch, useSelector } from 'react-redux'
-// import { __getCommentByCommendId } from '../../redux/modules/commentASlice'
-// import Comment from './Comment'
-// import AddCommentForm from './AddCommentForm'
-
-// const Comments = () => {
-//   const { commentId } = useParams()
-//   const dispatch = useDispatch()
-//   const [isShow, setisShow] = useState(false)
-//   const data = useSelector((state) => state.comments.comments)
-
-//   useEffect(() => {
-//     if (isShow) {
-//       dispatch(__getCommentByCommendId(commentId))
-//     }
-//   }, [dispatch, commentId, isShow])
-
-//   return (
-//     <StContainer isShow={isShow}>
-//       <StToggleContainer
-//         onClick={() => {
-//           setisShow((pre) => !pre)
-//         }}
-//       >
-//         <div>{isShow ? '눌러서 댓글내리기' : '눌러서 댓글보기'}</div>
-//       </StToggleContainer>
-//       <AddCommentForm />
-//       <StCommentList>
-//         {data?.map((comment) => (
-//           <Comment key={comment.commentId} comment={comment} />
-//         ))}
-//       </StCommentList>
-//     </StContainer>
-//   )
-// }
-
-// export default Comments
-
-// const StContainer = styled.div`
-//   height: ${({ isShow }) => (isShow ? '400px' : '50px')};
-//   position: absolute;
-//   bottom: 0px;
-//   left: 0px;
-//   width: 100%;
-//   background-color: #fff;
-//   transition: height 400ms ease-in-out;
-// `
-
-// const StToggleContainer = styled.div`
-//   height: 50px;
-//   padding: 0 12px;
-//   border-top: 1px solid #eee;
-// `
-
-// const StCommentList = styled.div`
-//   height: 350px;
-//   overflow: scroll;
-// `
+const BoxDiv = styled.div`
+  background-color: ${(props) => props.backgroundColor};
+  width: 50%;
+  height: 270px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+  word-wrap: break-word;
+  overflow-y: auto;
+`

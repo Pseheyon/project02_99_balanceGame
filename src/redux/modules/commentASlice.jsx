@@ -128,7 +128,9 @@ export const commentASlice = createSlice({
     },
     [__deleteComment.fulfilled]: (state, action) => {
       state.isLoading = false
+      console.log('deletedata', target)
       const target = state.data.findIndex((comment) => comment.commentId === action.payload.commentId)
+
       state.data.splice(target, 1)
     },
     [__deleteComment.rejected]: (state, action) => {

@@ -1,12 +1,14 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
+  html {
+    width: 100vw;
+  }
   body {
-    width: 100%;
-  }
-  main {
-    width: 1200px;
-  }
-`;
+    width: 50%;
+    margin: 0 auto;
 
-export default GlobalStyle;
+  }
+`
+
+export default GlobalStyle

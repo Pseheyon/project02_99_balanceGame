@@ -79,7 +79,7 @@ const Detail = () => {
 
   return (
     <>
-      <div>
+      <BackStyle>
         <div>{card.title}</div>
         <Link to={'/games'}>Go</Link>
         <div>
@@ -149,15 +149,19 @@ const Detail = () => {
           </div>
         </div>
         {!isEditMode && <Comments />}
-      </div>
+      </BackStyle>
     </>
   )
 }
 
 export default Detail
 
+const BackStyle = styled.div`
+  background-color: #ffafd6;
+`
+
 const Textarea = styled.textarea`
-  width: 80%;
+  width: 50%;
   border: 1px solid #eee;
   padding: 12px;
   font-size: 14px;
