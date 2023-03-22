@@ -1,14 +1,3 @@
-<<<<<<< Updated upstream
-import React from 'react'
-
-const Main = () => {
-  return (
-    <div>Main</div>
-  )
-}
-
-export default Main
-=======
 // import React from "react";
 // import { useNavigate } from "react-router-dom";
 // import { useEffect } from "react";
@@ -142,4 +131,3 @@ const StPosition = styled.div`
     display: flex;
     justify-content: center;
 `
->>>>>>> Stashed changes

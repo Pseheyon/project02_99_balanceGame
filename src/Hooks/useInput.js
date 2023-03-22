@@ -1,11 +1,25 @@
-import { useState } from "react";
+import React from "react";
+import { useNavigate } from "react-router-dom";
+const Home = () => {
+  const navi = useNavigate();
+  const tokennickname = localStorage.getItem("token");
 
-export function useInput(initialValue) {
-  const [inputValue, setInputValue] = useState(initialValue);
+  console.log(tokennickname);
 
-  const handleChange = (e) => {
-    setInputValue(e.target.value);
-  };
+  return (
+    <div>
+      <h2>Home</h2>
+      {tokennickname}님
+      <button
+        onClick={() => {
+          localStorage.remove("token");
+          navi("/");
+        }}
+      >
+        로그아웃
+      </button>
+    </div>
+  );
+};
 
-  return [inputValue, setInputValue, handleChange];
-}
+export default Home;

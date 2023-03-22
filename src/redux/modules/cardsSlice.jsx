@@ -20,12 +20,6 @@ export const __getCardsThunk = createAsyncThunk(
     }   
 )
 
-<<<<<<< Updated upstream
-
-const initialState = {};
-=======
->>>>>>> Stashed changes
-
 // card 추가 Thunk
 export const __addCardsThunk = createAsyncThunk(
     'ADD_CARDS',
@@ -60,9 +54,6 @@ const initialState = {
 export const cardsSlice = createSlice({
     name: "cards",
     initialState,
-<<<<<<< Updated upstream
-    reducer: {}
-=======
     reducer: {},
     extraReducers: {
         [__getCardsThunk.fulfilled]: (state, action) => {
@@ -70,7 +61,6 @@ export const cardsSlice = createSlice({
             state.cards = action.payload
         },
     }
->>>>>>> Stashed changes
 });
 
 export const {} = cardsSlice.actions

@@ -1,12 +1,8 @@
 import { configureStore } from "@reduxjs/toolkit";
-import cards from '../modules/cardsSlice'
-
+import signup from "../modules/signup";
+import login from "../modules/login";
 const store = configureStore({
-<<<<<<< Updated upstream
-    reducer: {
-        cards,
-    },
-=======
+
   reducer: { 
     signup: signup, 
     login: login,
@@ -15,7 +11,6 @@ const store = configureStore({
     comments,
     comment,
   },
->>>>>>> Stashed changes
 });
 
 export default store;
