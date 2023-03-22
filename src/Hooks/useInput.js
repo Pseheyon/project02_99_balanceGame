@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState } from 'react'
 
 export function useInput(initialValue) {
-  const [inputValue, setInputValue] = useState(initialValue);
+  const [inputValue, setInputValue] = useState(initialValue)
 
   const handleChange = (e) => {
-    setInputValue(e.target.value);
-  };
+    setInputValue(e.target.value)
+  }
 
-  return [inputValue, setInputValue, handleChange];
+  return [inputValue, setInputValue, handleChange]
 }

@@ -19,7 +19,7 @@ const Router = () => {
         <Route path="/signup" element={<Register />} />
         <Route path="/games" element={<CardList />} />
         <Route path="/game/:id" element={<Edit />} />
-        <Route path="/games/:id" element={<Detail />} />
+        <Route path="/games/:gameId" element={<Detail />} />
         <Route path="/error" element={<Error />} />
       </Routes>
     </BrowserRouter>
