@@ -9,7 +9,6 @@ function Comments() {
       <BackStyle>
         <AddCommentForm />
       </BackStyle>
-
       <CommentBox>
         <CommentsAList />
       </CommentBox>
@@ -24,12 +23,12 @@ export default Comments
 
 const BackStyle = styled.div`
   background-color: #ffafd6;
+  width: 100%;
   height: 200px;
 `
 const CommentBox = styled.div`
   background-color: #ffc3e0;
-  display: flex;
-  gap: 200px;
-  height: 270px;
   width: 100%;
+  display: flex;
+  height: 270px;
 `

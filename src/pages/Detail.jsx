@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import Comments from '../features/card/Comments'
 import styled from 'styled-components'
+import { BsArrowLeftCircleFill } from 'react-icons/bs'
+import heartIcon from '../image/Pasted.png'
 
 const Detail = () => {
   const dispatch = useDispatch()
@@ -80,8 +82,14 @@ const Detail = () => {
   return (
     <>
       <BackStyle>
-        <div>{card.title}</div>
-        <Link to={'/games'}>Go</Link>
+        <Link to={'/games'}>
+          <BsArrowLeftCircleFill
+            style={{
+              color: '#FF6DB4',
+              fontSize: '15px',
+            }}
+          />
+        </Link>
         <div>
           {isEditMode ? (
             <>
@@ -107,44 +115,95 @@ const Detail = () => {
           ) : (
             <div
               style={{
+                marginTop: '20px',
                 display: 'flex',
-                gap: '200px',
+                justifyContent: 'space-around',
               }}
             >
-              <div
-                style={{
-                  display: 'flex',
-                  gap: '20px',
-                }}
-              >
+              <ContentBox>
+                <OptionLikes>
+                  <div
+                    style={{
+                      fontSize: '12px',
+                      color: '#ff6db4',
+                    }}
+                  >
+                    option A
+                  </div>
+                  <div
+                    style={{
+                      display: 'flex',
+                    }}
+                  >
+                    <div
+                      style={{
+                        fontSize: '12px',
+                        color: 'white',
+                      }}
+                    >
+                      {card.likesA}
+                    </div>
+                    <img
+                      style={{
+                        height: '14px',
+                      }}
+                      src={heartIcon}
+                      onClick={onIncreaseLikesAHandler}
+                    />
+                  </div>
+                </OptionLikes>
+
                 <div>{card.optionA}</div>
-                <div>{card.likesA}</div>
-                <button onClick={onIncreaseLikesAHandler}>+</button>
-              </div>
-              <div
-                style={{
-                  display: 'flex',
-                  gap: '20px',
-                }}
-              >
+              </ContentBox>
+              <div>VS</div>
+              <ContentBox>
+                <OptionLikes>
+                  <div
+                    style={{
+                      fontSize: '12px',
+                      color: '#ff6db4',
+                    }}
+                  >
+                    option B
+                  </div>
+                  <div
+                    style={{
+                      display: 'flex',
+                    }}
+                  >
+                    <div
+                      style={{
+                        fontSize: '12px',
+                        color: 'white',
+                      }}
+                    >
+                      {card.likesB}
+                    </div>
+                    <img
+                      style={{
+                        height: '14px',
+                      }}
+                      src={heartIcon}
+                      onClick={onIncreaseLikesBHandler}
+                    />
+                  </div>
+                </OptionLikes>
                 <div>{card.optionB}</div>
-                <div>{card.likesB}</div>
-                <button onClick={onIncreaseLikesBHandler}>+</button>
-              </div>
+              </ContentBox>
             </div>
           )}
 
           <div>
             {isEditMode ? (
-              <button onClick={onSaveButtonHandler}>저장</button>
+              <Button onClick={onSaveButtonHandler}>SAVE</Button>
             ) : (
-              <button
+              <Button
                 onClick={() => {
                   setIsEditMode(true)
                 }}
               >
-                수정
-              </button>
+                EDIT
+              </Button>
             )}
           </div>
         </div>
@@ -159,10 +218,28 @@ export default Detail
 const BackStyle = styled.div`
   background-color: #ffafd6;
 `
+const ContentBox = styled.div`
+  width: 25%;
+  padding: 10px 20px;
+  border: 1px solid #ff6db4;
+`
+const OptionLikes = styled.div`
+  display: flex;
+  justify-content: space-between;
+`
 
 const Textarea = styled.textarea`
   width: 50%;
   border: 1px solid #eee;
   padding: 12px;
   font-size: 14px;
+  color: #ff6db4;
+  background-color: #ffe3f1;
+`
+const Button = styled.button`
+  border-radius: 40px;
+  border: 0px;
+  color: #ff6db4;
+  background-color: #ffe3f1;
+  padding: 5px 20px;
 `

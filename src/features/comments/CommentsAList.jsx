@@ -36,11 +36,7 @@ const CommentsAList = () => {
   }
 
   return (
-    <div
-      style={{
-        display: 'flex',
-      }}
-    >
+    <StwidthBox>
       <BoxDiv backgroundColor="green">
         <div>Option A</div>
         <div>
@@ -71,14 +67,14 @@ const CommentsAList = () => {
               ))}
         </div>
       </BoxDiv>
-    </div>
+    </StwidthBox>
   )
 }
 
 export default CommentsAList
 
 const Textarea = styled.textarea`
-  width: 80%;
+  width: 50%;
   border: 1px solid #eee;
   padding: 12px;
   font-size: 14px;
@@ -86,12 +82,16 @@ const Textarea = styled.textarea`
 
 const BoxDiv = styled.div`
   background-color: ${(props) => props.backgroundColor};
+  padding: 20px 50px;
   width: 50%;
-  height: 270px;
+  height: 230px;
   display: flex;
   align-items: center;
   flex-direction: column;
-  gap: 30px;
   word-wrap: break-word;
   overflow-y: auto;
+`
+const StwidthBox = styled.div`
+  width: 100%;
+  display: flex;
 `
