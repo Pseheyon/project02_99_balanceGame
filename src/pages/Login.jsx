@@ -50,8 +50,8 @@ function Login() {
   //새로고침하면 실행됨
 
   return (
-    <form onSubmit={submitButtonHandler}>
-      <InputArea>
+    <SignupBox onSubmit={submitButtonHandler}>
+      <InputArea className="GstInputWarpper">
         {/* <SignupLabel htmlFor="id"> 아이디 </SignupLabel> */}
         <span>아이디</span>
         <NInput
@@ -92,7 +92,7 @@ function Login() {
         </>
       )}
       <div>{user.nickname}</div>
-    </form>
+    </SignupBox>
   );
 }
 const SignupBox = styled.form`
@@ -103,29 +103,27 @@ const SignupBox = styled.form`
   justify-content: center;
   align-items: center;
   gap: 50px;
+  background-color: aqua;
+  border-radius: 80px;
+  height: 60vh;
+  padding: 20% auto;
+  box-sizing: border-box;
+  overflow: hidden;
 `;
 
 const InputArea = styled.div`
   display: flex;
-  flex-direction: column;
-
-  width: 90%;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
 `;
 
 const SignupLabel = styled.label`
   font-weight: bold;
 `;
 
-const SignupInput = styled.input`
-  width: 100%;
-  height: 50px;
-  margin-top: 10px;
-
-  border: 2px solid black;
-`;
 const SignupBtn = styled.button`
   width: 50%;
   height: 30px;
 `;
-
 export default Login;

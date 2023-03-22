@@ -9,7 +9,6 @@ const Home = () => {
   return (
     <div>
       <h2>Home</h2>
-      {tokennickname}님
       <button
         onClick={() => {
           localStorage.remove("token");

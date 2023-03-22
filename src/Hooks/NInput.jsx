@@ -15,9 +15,6 @@ const NInput = ({ type, placeholder, name, value, onChange }) => {
 
 export default NInput;
 const SignupInput = styled.input`
-  width: 100%;
+  width: 80%;
   height: 50px;
-  margin-top: 10px;
-
-  border: 2px solid black;
 `;

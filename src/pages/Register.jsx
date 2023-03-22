@@ -34,14 +34,6 @@ function Signup() {
     }
   }, []);
 
-  // useEffect는 마운트될때 한번만 실행되고 그 후에 실행되지 않음
-  // 새로고침하면 실행됨
-  // useEffect(() => {
-  //   dispatch(__signup(user)).then(() => {
-  //     window.location.href = "/login"; // 로그인 페이지 경로로 변경
-  //   });
-  // }, [dispatch, user]);
-
   return (
     <Home>
       <form onSubmit={submitButtonHandler}>

@@ -14,8 +14,4 @@ function App() {
 }
 
 export default App;
-const Layout = styled.main`
-  width: 100vw;
-  max-width: 1200px;
-  border: 2px solid black;
-`;
+const Layout = styled.main``;
