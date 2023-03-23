@@ -14,4 +14,4 @@ function App() {
 }
 
 export default App;
-const Layout = styled.main``;
+const Layout = styled.body``;

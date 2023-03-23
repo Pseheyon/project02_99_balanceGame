@@ -1,10 +1,14 @@
 import { configureStore } from "@reduxjs/toolkit";
 import signup from "../modules/signup";
 import login from "../modules/login";
-const store = configureStore({
+import cardsSlice from "../modules/cardsSlice";
+import card from "../modules/editSlice";
+import comments from "../modules/commentASlice";
+import comment from "../modules/commentSlice";
 
-  reducer: { 
-    signup: signup, 
+const store = configureStore({
+  reducer: {
+    signup: signup,
     login: login,
     cardsSlice,
     card,

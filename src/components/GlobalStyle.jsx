@@ -24,10 +24,7 @@ html {
   font-family: "Montserrat";
   width: 100vw;
 }
-  body {
-    width: 90%;
-    margin: 0 auto;
-  }
+
  .GstInputWarpper {
   border: 1px solid black;
   border-radius: 50px;

@@ -95,6 +95,7 @@ function Login() {
     </SignupBox>
   );
 }
+export default Login;
 const SignupBox = styled.form`
   width: 100%;
   height: 100vh;
@@ -126,4 +127,6 @@ const SignupBtn = styled.button`
   width: 50%;
   height: 30px;
 `;
-export default Login;
+// const StWidthWraprer = styled.div`
+
+// `;

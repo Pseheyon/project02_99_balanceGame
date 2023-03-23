@@ -80,6 +80,7 @@ function Signup() {
     </Home>
   );
 }
+export default Signup;
 
 const Home = styled.div`
   width: 100%;
@@ -122,5 +123,6 @@ const SignupBtn = styled.button`
   width: 50%;
   height: 30px;
 `;
+// const StWidthWraprer = styled.div`
 
-export default Signup;
+// `;

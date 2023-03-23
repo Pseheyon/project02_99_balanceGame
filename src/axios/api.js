@@ -42,7 +42,7 @@ apis_token.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem("token"); // 로컬스토리지에서 토큰 값 가져오기
     if (token) {
-      config.headers.Authorization = `Bearer ${token}`; // HTTP 요청의 Authorization 헤더에 토큰 값 추가
+      config.headers.authorization = `Bearer ${token}`; // HTTP 요청의 Authorization 헤더에 토큰 값 추가
     }
     return config;
   },
