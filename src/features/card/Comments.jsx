@@ -27,7 +27,7 @@ const BackStyle = styled.div`
     height: 200px;
 `
 const CommentBox = styled.div`
-    background-color: #ffc3e0;
+    background-color: #FFF2F8;
     width: 100%;
     display: flex;
     height: 270px;

@@ -17,4 +17,9 @@ export default NInput;
 const SignupInput = styled.input`
   width: 80%;
   height: 50px;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  margin: 1%;
+  font-weight: 800;
 `;

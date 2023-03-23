@@ -64,21 +64,23 @@ const AddCommentForm = () => {
 export default AddCommentForm
 
 const InputBox = styled.div`
+height:250px;
     display: flex;
     gap: 20px;
     justify-content: center;
+    align-items: center;
 `
 const SelectOption = styled.select`
     background-color: #ffe3f1;
     appearance: none;
     border: 0px;
     border-radius: 40px 0px 0px 40px;
-    padding: 5px 10px;
+    padding: 11px 15px;
     color: #ff6db4;
 `
 const CommentInput = styled.input`
     border: 0px;
-    padding: 5px 60px;
+    padding: 11px 340px 11px 9px;
     border-radius: 0px 40px 40px 0px;
     color: #ff6db4;
         ::placeholder {
@@ -90,5 +92,5 @@ const SubmitButton = styled.button`
     border: 0px;
     color: #ff6db4;
     background-color: #ffe3f1;
-    padding: 5px 20px;
+    padding: 13px 40px;
 `

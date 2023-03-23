@@ -9,20 +9,28 @@ function Header() {
   };
   return (
     <StWidthWraprer className="headerWidth">
-      <img src="" alt="" />
-      <button onClick={handleLogoutBtn}>로그아웃</button>
+      <img className="logoG" src={"Balance Game.png"} alt="logo"/>
+      <StLoginBtn className="btnLogin" onClick={handleLogoutBtn}>로그아웃</StLoginBtn>
     </StWidthWraprer>
   );
 }
 
 export default Header;
 const StWidthWraprer = styled.div`
-  width: 90%;
-  padding: 10%;
+  width: 100%;
+  padding: 3%;
   margin: 0 auto;
   box-sizing: border-box;
   overflow: hidden;
   display: flex;
   justify-content: space-between;
   align-items: center;
-`;
+  position :fixed;
+  border :1px solid blak;
+
+`
+const StLoginBtn = styled.button`
+ 
+`
+
+

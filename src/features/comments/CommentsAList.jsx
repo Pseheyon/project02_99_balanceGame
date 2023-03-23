@@ -30,6 +30,7 @@ const CommentsAList = () => {
     }
     if (isLoading) {
     return <div>로딩중.....ㅎㅎ</div>
+
     }
     if (error) {
         return <div>{error.message}</div>
@@ -37,8 +38,11 @@ const CommentsAList = () => {
 
     return (
     <StwidthBox>
-        <BoxDiv backgroundColor="green">
-        <div>Option A</div>
+        <BoxDiv>
+        <div
+        style={{
+            color: '#FF6DB4'
+        }}>Option A</div>
         <div>
             {comments &&
             comments
@@ -52,9 +56,12 @@ const CommentsAList = () => {
                 ))}
         </div>
         </BoxDiv>
-        <BoxDiv backgroundColor="blue">
-        <div>Option B</div>
-        <div>
+        <BoxDiv>
+        <boxWidht
+        style={{
+            color: '#FF6DB4'
+        }}>Option B</boxWidht>
+        <boxWidht>
             {comments &&
             comments
                 .filter((comment) => comment.option == 'B')
@@ -65,14 +72,20 @@ const CommentsAList = () => {
                     onClick={() => clickisEdit(comment.commentId, __updatedComment)}
                 />
                 ))}
-        </div>
+        </boxWidht>
         </BoxDiv>
     </StwidthBox>
     )
+
 }
 
 export default CommentsAList
 
+const boxWidht = styled.div`
+    width: 100%;
+    overflow: hidden;
+  box-sizing: border-box;
+`
 const Textarea = styled.textarea`
     width: 50%;
     border: 1px solid #eee;
@@ -84,14 +97,21 @@ const BoxDiv = styled.div`
     background-color: ${(props) => props.backgroundColor};
     padding: 20px 50px;
     width: 50%;
-    height: 230px;
+    height: 260px;
     display: flex;
     align-items: center;
     flex-direction: column;
+    gap: 20%;
+    align-items: center;
+    display: flex;
+`
+
+const StwidthBox = styled.div`
+width: 100%;
+display: flex; 
     word-wrap: break-word;
     overflow-y: auto;
-`
-const StwidthBox = styled.div`
-    width: 100%;
-    display: flex;
+::-webkit-scrollbar {
+    display: none;
+  }
 `

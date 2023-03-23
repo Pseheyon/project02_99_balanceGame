@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { apis_token } from '../../axios/api'
 
 export const __getComments = createAsyncThunk(
   "GET_COMMENTS",
@@ -37,8 +38,8 @@ export const __addComments = createAsyncThunk(
   async (payload, thunkAPI) => {
     try {
       console.log("payloadaddcomment--", payload);
-      const { data } = await axios.post(
-        `http://43.201.20.151:3001/api/games/${payload.GameId}`,
+      const { data } = await apis_token.post(
+        `http://43.201.20.151:3001/api/games/${payload.GameId}/comments`,
         {
           option: payload.option,
           content: payload.content,
@@ -56,10 +57,9 @@ export const __updatedComment = createAsyncThunk(
   async (payload, thunkAPI) => {
     try {
       console.log("payloadupdatecomment--", payload);
-      axios.patch(
+      await apis_token.put(
         `http://43.201.20.151:3001/api/games/${payload.gameId}/comments/${payload.commentId}`,
         {
-          commentId: payload.commentId,
           content: payload.content,
         }
       );
@@ -77,7 +77,7 @@ export const __deleteComment = createAsyncThunk(
   async (payload, thunkAPI) => {
     try {
       console.log("payloaddelete", payload);
-      await axios.delete(
+      await apis_token.delete(
         `http://43.201.20.151:3001/api/games/${payload.gameId}/comments/${payload.commentId}`
       );
       return thunkAPI.fulfillWithValue(payload);

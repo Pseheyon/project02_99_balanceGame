@@ -12,7 +12,9 @@ import { useDispatch } from "react-redux";
 import Comments from "../features/card/Comments";
 import styled from "styled-components";
 import { BsArrowLeftCircleFill } from "react-icons/bs";
-import heartIcon from "../image/Pasted.png";
+import {__updatedLikesA, __updatedLikesB} from "../redux/modules/likeSlice"
+import { AiTwotoneHeart } from "react-icons/ai";
+
 
 const Detail = () => {
   const dispatch = useDispatch();
@@ -39,7 +41,7 @@ const Detail = () => {
 
   const saveUpdatedLikesA = (updatedLikesA) => {
     dispatch(
-      __updatedCardThunk({
+      __updatedLikesA({
         ...card,
         likesA: updatedLikesA,
       })
@@ -47,7 +49,7 @@ const Detail = () => {
   };
   const saveUpdatedLikesB = (updatedLikesB) => {
     dispatch(
-      __updatedCardThunk({
+      __updatedLikesB({
         ...card,
         likesB: updatedLikesB,
       })
@@ -76,15 +78,22 @@ const Detail = () => {
         ...card,
         optionA: updatedOptionA,
         optionB: updatedOptionB,
+
+      }),
+      __updatedLikesA({
+        ...card,
         likesA: plusLikesA,
-        likesB: plusLikesB,
+      }),
+      __updatedLikesB({
+        ...card,
+        likesA: plusLikesB,
       })
     );
     setIsEditMode(false);
   };
 
   return (
-    <>
+    <div>
       <BackStyle>
         <Link to={"/games"}>
           <BsArrowLeftCircleFill
@@ -128,7 +137,7 @@ const Detail = () => {
                 <OptionLikes>
                   <div
                     style={{
-                      fontSize: "12px",
+                      fontSize: "20px",
                       color: "#ff6db4",
                     }}
                   >
@@ -141,30 +150,47 @@ const Detail = () => {
                   >
                     <div
                       style={{
-                        fontSize: "12px",
+
+                        fontSize: "20px",
                         color: "white",
                       }}
                     >
                       {card.likesA}
                     </div>
-                    <img
+                    <AiTwotoneHeart
                       style={{
-                        height: "14px",
+                        cursor: "pointer",
+                        fontSize: "20px",
+                        color: "white",
+                        marginLeft: "4px",
                       }}
-                      src={heartIcon}
                       onClick={onIncreaseLikesAHandler}
                     />
                   </div>
                 </OptionLikes>
 
-                <div>{card.optionA}</div>
+                <div
+                  style={{
+                    
+                    marginTop:'25px',
+                    display: 'flex',
+                    alignContent: 'center',
+                    fontSize: '26px',
+                  }}>{card.optionA}</div>
               </ContentBox>
-              <div>VS</div>
+              <div
+              style={{
+                marginTop: '80px'
+,                fontSize: '32px',
+                fontWeight: '900',
+
+              }}>VS</div>
+
               <ContentBox>
                 <OptionLikes>
                   <div
                     style={{
-                      fontSize: "12px",
+                      fontSize: "20px",
                       color: "#ff6db4",
                     }}
                   >
@@ -177,31 +203,49 @@ const Detail = () => {
                   >
                     <div
                       style={{
-                        fontSize: "12px",
+                        marginLeft:'4px',
+                        fontSize: "20px",
                         color: "white",
                       }}
                     >
                       {card.likesB}
                     </div>
-                    <img
+                    <AiTwotoneHeart
                       style={{
-                        height: "14px",
+                        cursor: "pointer",
+                        fontSize: "20px",
+                        color: "white",
+                        marginLeft: "4px",
                       }}
-                      src={heartIcon}
-                      onClick={onIncreaseLikesBHandler}
+                      onClick={onIncreaseLikesAHandler}
                     />
                   </div>
                 </OptionLikes>
-                <div>{card.optionB}</div>
+                <div
+                style={{
+                  marginTop:'25px',
+                  display: 'flex',
+                  alignContent: 'center',
+                  fontSize: '26px',
+                }}>{card.optionB}</div>
               </ContentBox>
             </div>
           )}
 
           <div>
             {isEditMode ? (
-              <Button onClick={onSaveButtonHandler}>SAVE</Button>
+              <Button
+              style={{
+                display:'flex',
+                margin: 'auto',
+              }} 
+              onClick={onSaveButtonHandler}>SAVE</Button>
             ) : (
               <Button
+              style={{
+                display:'flex',
+                margin: 'auto',
+              }} 
                 onClick={() => {
                   setIsEditMode(true);
                 }}
@@ -213,23 +257,29 @@ const Detail = () => {
         </div>
         {!isEditMode && <Comments />}
       </BackStyle>
-    </>
+    </div>
   );
+  
 };
 
 export default Detail;
-
+const StGamesWrapper = styled.div`
+height: 100vh
+`
 const BackStyle = styled.div`
+  padding-top : 100px;
   background-color: #ffafd6;
 `;
 const ContentBox = styled.div`
+
   width: 25%;
+  height: 170px;
   padding: 10px 20px;
-  border: 1px solid #ff6db4;
 `;
 const OptionLikes = styled.div`
   display: flex;
   justify-content: space-between;
+
 `;
 
 const Textarea = styled.textarea`
@@ -237,8 +287,7 @@ const Textarea = styled.textarea`
   border: 1px solid #eee;
   padding: 12px;
   font-size: 14px;
-  color: #ff6db4;
-  background-color: #ffe3f1;
+  color: #ffe3f1;
 `;
 const Button = styled.button`
   border-radius: 40px;

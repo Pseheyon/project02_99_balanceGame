@@ -1,7 +1,16 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
-@import url("//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css");
+
+ .logoG{
+  width: 20%;
+ }
+ .btnLogin{
+  padding: 1%;
+  font-weight: 600;
+  border: none;
+ }
+ @import url("//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css");
 .spoka * {
   font-family: "Spoqa Han Sans", "Spoqa Han Sans JP", "Sans-serif";
 }
@@ -23,6 +32,7 @@ html {
   font-family: "Spoqa Han Sans Neo";
   font-family: "Montserrat";
   width: 100vw;
+  height: 100vh;
 }
 
  .GstInputWarpper {
@@ -38,7 +48,12 @@ html {
   border-radius: 50px;
   cursor: pointer;
  }
- 
+ body{
+  margin :0;
+  padding: 0;
+  height: 100vh;
+
+ }
 `;
 
 export default GlobalStyle;

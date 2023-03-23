@@ -1,6 +1,11 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import { apis_token } from '../../axios/api'
 import axios from 'axios'
 
+const updateCardSuccess = (updatedGame) => ({
+  type: 'UPDATE_CARD_SUCCESS',
+  payload: updatedGame,
+})
 export const __getCardThunk = createAsyncThunk('GET_CARD', async (payload, thunkAPI) => {
   try {
     console.log("payload", payload)
@@ -17,9 +22,13 @@ export const __getCardThunk = createAsyncThunk('GET_CARD', async (payload, thunk
 export const __updatedCardThunk = createAsyncThunk('UPDATE_CARD', async (payload, thunkAPI) => {
   try {
     console.log('card.payload--->', payload)
-    axios.patch(`http://43.201.20.151:3001/api/games/${payload.gameId}`, payload)
-
-    return thunkAPI.fulfillWithValue(payload)
+    const { data } = await apis_token.put(`http://43.201.20.151:3001/api/games/${payload.gameId}`, {
+      optionA: payload.optionA,
+      optionB: payload.optionB,
+    })
+    thunkAPI.dispatch(updateCardSuccess(data.game))
+    console.log('card.payload--->', data.game)
+    return thunkAPI.fulfillWithValue(data)
   } catch (error) {
     console.log('card.update--->', error)
     return thunkAPI.rejectWithValue(error)

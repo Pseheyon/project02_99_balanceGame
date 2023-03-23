@@ -122,3 +122,15 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
 }
+
+.Homebackground {
+  background-image: url("${process.env.PUBLIC_URL + '/logout.png}");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100% 100%;
+  background-color: black;
+}
+body{
+  height: 100vh;
+  
+}
